@@ -5,7 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:client_app"
         mc:Ignorable="d"
-        Title="MainWindow" Height="309" Width="440" Closing="Window_Closing">
+        Title="MainWindow" Height="309" Width="440" Closing="Window_Closing"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Join" Click="JoinMenuClick"></MenuItem>
@@ -15,7 +23,13 @@
         <TextBlock TextAlignment="Center" FontSize="18" DockPanel.Dock="Top">Chat History</TextBlock>
         <DockPanel Margin="5" DockPanel.Dock="Bottom">
             <Label DockPanel.Dock="Left">Message:</Label>
-            <Button Click="SendBtnClick" Padding="10,5" DockPanel.Dock="Right">Send</Button>
+            <!--<Button Click="SendBtnClick" Padding="10,5" DockPanel.Dock="Right">Send</Button>-->
+            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    HorizontalAlignment="Left"
+                    Click="SendBtnClick"
+                    DockPanel.Dock="Right">
+                <materialDesign:PackIcon Kind="SendCircle" Height="24" Width="24" />   
+            </Button>
             <TextBox x:Name="msgTextBox" Padding="0,5" Margin="5,0" VerticalContentAlignment="Center"></TextBox>
         </DockPanel>
         <ListBox x:Name="chatList" Margin="5"></ListBox>
